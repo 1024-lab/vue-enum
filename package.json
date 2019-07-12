@@ -1,9 +1,13 @@
 {
   "name": "vue-enum",
   "description": "前端枚举工具",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "1024-lab <1024lab@sina.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1024-lab/vue-enum"
+  },
   "main":"dist/vue-enum.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"

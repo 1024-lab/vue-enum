@@ -7,7 +7,7 @@ Constant.install = function (Vue, options) {
    * @param {*} value          枚举值
    * @returns
    */
-  const constantInfo=options.constantInfo||{}
+  const constantInfo=options.enumInfo||{}
   const Enum = {}
   Enum.getDescByValue = function (constantName, value) {
     if (!constantInfo.hasOwnProperty(constantName)) {
