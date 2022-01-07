@@ -1,10 +1,11 @@
 # vue-enum
 
 > 前端常量 枚举工具
+> 参考 https://github.com/1024-lab/vue-enum
 
 ## **一、安装及初始化方法**
 
-``` 
+```
 1. npm install vue-enum --save
 2. 按以下格式定义您的枚举对象
 
@@ -34,6 +35,17 @@ let enumInfo = {
 ```
 
 
+```vue
+    <script setup>
+      import { inject } from 'vue'
+      const enum = inject('$Enum')
+    </script>
+
+    <template>
+      <div>{{enum.getDescByValue('SOURCE_IN_TYPE', params.row.sourceType)}}</div>
+    </template>
+```
+
 
 ## **二、使用方法**
 
@@ -45,7 +57,7 @@ let enumInfo = {
 根据枚举值获取描述
 示例：
 
->在表格渲染时经常遇到需要将状态转换成描述的情况,此时可以使用 
+>在表格渲染时经常遇到需要将状态转换成描述的情况,此时可以使用
 
  ```
  params.row.sourceType=1
@@ -56,8 +68,8 @@ let enumInfo = {
 >下拉菜单经常需要使用键值对来渲染select的option [{value:desc}]
 
  ```
- let sourceTypeList =this.$enum.getValueDescList('SOURCE_IN_TYPE')  
- //[    
+ let sourceTypeList =this.$enum.getValueDescList('SOURCE_IN_TYPE')
+ //[
      {value: 1, desc: "采购入库"},
      {value: 2, desc: "退货入库"},
      {value: 3, desc: "盘点入库"},
@@ -71,7 +83,7 @@ let enumInfo = {
             :key="index"
         >{{item.desc}}</Option>
     </Select>
-  
+
  ```
 >根据枚举名获取对应的value描述键值对{value:desc}
 

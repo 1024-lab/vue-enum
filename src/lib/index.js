@@ -1,6 +1,6 @@
-const Constant={} 
+const Constant={}
 
-Constant.install = function (Vue, options) {
+Constant.install = function (app, options) {
   /**
    * 根据枚举值获取描述
    * @param {*} constantName 枚举名
@@ -58,7 +58,12 @@ Constant.install = function (Vue, options) {
     }
     return result
   }
-  Vue.prototype.$enum = Enum
+  /** 挂载到全局globalProperties*/
+  app.config.globalProperties.$Enum = Enum
+  /** 全局依赖注入*/
+  app.provide('$Enum', Enum)
+
 }
 
-export default Constant
+// export default Constant
+module.exports = Constant
